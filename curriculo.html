@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Currículo</title>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+    body {
+        font-family: 'Ubuntu', sans-serif;
+        padding: 0 50px 0 50px;
+    }
+
+    header {
+        display: flex;
+        width: auto;
+        border-bottom: solid 1px black;
+        box-shadow: lightgrey 0px 15px 15px -14px;
+    }
+
+        header > label {
+            width: 30%;
+            padding-left: 40%;
+            padding-right: 35%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+        }
+
+    .theme-bar {
+        width: 25%;
+        display: flex;
+    }
+
+        .theme-bar button {
+            width: 50px;
+            height: 30px;
+            border-width: 1px;
+            text-align: center;
+            font-size: 12px;
+            background-color: #eff3f6;
+            background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+            color: #24292e;
+        }
+
+            .theme-bar button.selected {
+                background-color: #e9ecef;
+                background-image: none;
+                border-color: rgba(27,31,35,.35);
+                box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,.15);
+            }
+
+            .theme-bar button:hover {
+                background-color: #e6ebf1;
+                background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+                background-position: -.5em;
+                border-color: rgba(27,31,35,.35);
+            }
+
+    #white-theme {
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+
+    #dark-theme {
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .title {
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    .bloco {
+        padding-top: 15px;
+    }
+
+    </style>
+</head>
+<body class="white">
+    <script type="text/javascript">
+        function changeTheme(theme) {
+            document.body.className = theme;
+        }
+
+        window.onload = function () {
+            document.querySelector('#white-theme').onclick = function () {
+                changeTheme('white');
+                this.className = 'selected';
+                document.getElementById('dark-theme').className = '';
+            }
+
+            document.querySelector('#dark-theme').onclick = function () {
+                changeTheme('dark');
+                this.className = 'selected';
+                document.getElementById('white-theme').className = '';
+            }
+
+            fetch('http://demo2042728.mockable.io/empresas')
+                .then(function (response) {
+                    console.log(response);
+                })
+        }
+    </script>
+    <header>
+        <label class="title">
+            Currículo
+        </label>
+        <div class="theme-bar">
+            <button id="white-theme" class="selected">Claro</button>
+            <button id="dark-theme">Escuro</button>
+        </div>
+    </header>
+    <div class="body">
+        <div class="bloco">
+            <label>
+                Informações pessoais
+            </label>
+            <div class="content">
+                <div class="row">
+                    <div class="col-10">
+                        <label>Nome: </label>
+                        <span>Alexandre Corrêa Ondei</span>
+                    </div>
+                    <div class="col-2">
+                        <label>Idade: </label>
+                        <span>29</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <label>E-mail: </label>
+                        <span>alexondei@gmail.com</span>
+                    </div>
+                    <div class="col-2">
+                        <label>CPF: </label>
+                        <span>070.745.649.58</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <label>Endereço: </label>
+                        <span>Rua Silvério Campana n° 173</span>
+                    </div>
+                    <div class="col-2">
+                        <label>Telefone: </label>
+                        <span>(43) 3341-1927</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bloco">
+            <label>
+                Experiência profissional
+            </label>
+            <div class="content">
+                <!-- mockable -->
+                <div class="empresas">
+
+                </div>
+            </div>
+        </div>
+        <div class="bloco">
+            <label>
+                Formação
+            </label>
+            <div class="content">
+                <div class="row">
+                    <label>Curso: </label>
+                    <span>Análise e desenvolvimento de sistemas</span>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label>Instituição: </label>
+                        <span>UTFPR</span>
+                    </div>
+                    <div class="col-2">
+                        <label>Período: </label>
+                        <span>2009 - 2012</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bloco">
+            <label>Habilidades técnicas</label>
+            <div class="content">
+                <!-- mockable -->
+            </div>
+        </div>
+        <div class="bloco">
+            <label>Idiomas</label>
+            <div class="content">
+                <div class="col-2">
+                    <label>Idioma: </label>
+                    <span>Inglês</span>
+                </div>
+                <div class="col-5">
+                    <label>Nível de conhecimento: </label>
+                    <span>intermediário</span>
+                </div>
+            </div>
+        </div>
+        <div class="bloco">
+            <label>Interesses profissionais</label>
+            <div class="content">
+                <span>
+                    Atuar na área de desenvolvimento de softwares como analista/programador, possuindo a liberdade
+                    de participar da criação de novas ferramentas, bem como adquirir conhecimento de novas tecnologias,
+                    a fim de me aprimorar cada vez mais, sendo capaz de, não só cumprir as demandas no prazo, mas também
+                    poder contribuir com novos conhecimentos relacionados à ferramentas, processos de desenvolvimento e
+                    apoio à equipe, sempre colaborando com a equipe.
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
